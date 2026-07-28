@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Отдых.23 — посты для соцсетей</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --sea: #1a4a52;
+      --sea-deep: #0f2e34;
+      --foam: #e8f2f0;
+      --sand: #d4c4a8;
+      --sun: #c9a227;
+      --ink: #142428;
+      --muted: #5a6e72;
+      --line: rgba(26, 74, 82, 0.12);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Manrope", sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(ellipse 90% 60% at 10% -10%, rgba(201, 162, 39, 0.18), transparent 50%),
+        radial-gradient(ellipse 70% 50% at 100% 20%, rgba(26, 74, 82, 0.12), transparent 45%),
+        linear-gradient(165deg, #f7f4ee 0%, #eef5f4 45%, #e6ebe8 100%);
+      min-height: 100vh;
+      line-height: 1.55;
+    }
+
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: grid;
+      align-items: end;
+      overflow: hidden;
+      color: var(--foam);
+      isolation: isolate;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -2;
+      background:
+        linear-gradient(180deg, rgba(15, 46, 52, 0.35) 0%, rgba(15, 46, 52, 0.82) 70%, rgba(15, 46, 52, 0.95) 100%),
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 800' preserveAspectRatio='xMidYMid slice'%3E%3Cdefs%3E%3ClinearGradient id='sky' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0%25' stop-color='%234a7c88'/%3E%3Cstop offset='55%25' stop-color='%232d5a63'/%3E%3Cstop offset='100%25' stop-color='%231a3d44'/%3E%3C/linearGradient%3E%3ClinearGradient id='sun' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0%25' stop-color='%23f0d78c'/%3E%3Cstop offset='100%25' stop-color='%23c9a227'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='1200' height='800' fill='url(%23sky)'/%3E%3Ccircle cx='920' cy='180' r='70' fill='url(%23sun)' opacity='0.85'/%3E%3Cpath d='M0 420 Q200 380 400 430 T800 410 T1200 450 V800 H0 Z' fill='%231a4a52' opacity='0.55'/%3E%3Cpath d='M0 480 Q300 440 550 500 T1200 490 V800 H0 Z' fill='%230f2e34' opacity='0.7'/%3E%3Cpath d='M80 520 L140 420 L200 520 Z' fill='%23d4c4a8' opacity='0.35'/%3E%3Cpath d='M160 520 L210 450 L260 520 Z' fill='%23e8f2f0' opacity='0.25'/%3E%3Crect x='520' y='390' width='160' height='110' rx='4' fill='%23e8f2f0' opacity='0.2'/%3E%3Crect x='545' y='360' width='110' height='40' fill='%23c9a227' opacity='0.35'/%3E%3C/svg%3E") center / cover no-repeat;
+      animation: heroDrift 18s ease-in-out infinite alternate;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background: linear-gradient(90deg, transparent, rgba(201, 162, 39, 0.08), transparent);
+      background-size: 200% 100%;
+      animation: shimmer 10s linear infinite;
+      pointer-events: none;
+    }
+
+    @keyframes heroDrift {
+      from { transform: scale(1); }
+      to { transform: scale(1.06); }
+    }
+
+    @keyframes shimmer {
+      from { background-position: 0% 0; }
+      to { background-position: 200% 0; }
+    }
+
+    @keyframes riseIn {
+      from {
+        opacity: 0;
+        transform: translateY(28px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .hero-inner {
+      width: min(1100px, calc(100% - 2.5rem));
+      margin: 0 auto;
+      padding: 4.5rem 0 5rem;
+      animation: riseIn 1s ease-out both;
+    }
+
+    .brand {
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(3.4rem, 10vw, 6.5rem);
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      line-height: 0.95;
+      margin-bottom: 1rem;
+    }
+
+    .brand span {
+      color: var(--sun);
+    }
+
+    .hero h1 {
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(1.5rem, 3.5vw, 2.25rem);
+      font-weight: 500;
+      font-style: italic;
+      max-width: 18ch;
+      margin-bottom: 0.85rem;
+      color: rgba(232, 242, 240, 0.95);
+    }
+
+    .hero p {
+      max-width: 36ch;
+      font-size: 1.05rem;
+      color: rgba(232, 242, 240, 0.78);
+      margin-bottom: 1.75rem;
+    }
+
+    .cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.9rem 1.4rem;
+      background: var(--sun);
+      color: var(--sea-deep);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      letter-spacing: 0.02em;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.25);
+    }
+
+    .posts {
+      width: min(860px, calc(100% - 2.5rem));
+      margin: 0 auto;
+      padding: 4.5rem 0 5rem;
+    }
+
+    .posts-header {
+      margin-bottom: 2.75rem;
+      animation: riseIn 0.8s ease-out 0.15s both;
+    }
+
+    .posts-header h2 {
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(2rem, 4vw, 2.75rem);
+      font-weight: 600;
+      color: var(--sea-deep);
+      margin-bottom: 0.5rem;
+    }
+
+    .posts-header p {
+      color: var(--muted);
+      max-width: 42ch;
+    }
+
+    .post {
+      padding: 1.75rem 0;
+      border-top: 1px solid var(--line);
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .post.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .post:last-child {
+      border-bottom: 1px solid var(--line);
+    }
+
+    .post-meta {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 0.85rem;
+      font-size: 0.8rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--sea);
+      font-weight: 600;
+    }
+
+    .post-num {
+      color: var(--sun);
+    }
+
+    .post h3 {
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(1.45rem, 2.5vw, 1.85rem);
+      font-weight: 600;
+      color: var(--sea-deep);
+      margin-bottom: 0.75rem;
+      line-height: 1.2;
+    }
+
+    .post-body {
+      color: var(--muted);
+      white-space: pre-line;
+      margin-bottom: 1.1rem;
+    }
+
+    .hashtags {
+      font-size: 0.9rem;
+      color: var(--sea);
+      font-weight: 500;
+    }
+
+    .copy-btn {
+      margin-top: 1rem;
+      border: 1px solid var(--line);
+      background: transparent;
+      color: var(--sea);
+      padding: 0.55rem 0.95rem;
+      font: inherit;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+    }
+
+    .copy-btn:hover,
+    .copy-btn.copied {
+      background: var(--sea);
+      border-color: var(--sea);
+      color: var(--foam);
+    }
+
+    footer {
+      text-align: center;
+      padding: 0 1.25rem 3rem;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    footer strong {
+      color: var(--sea);
+      font-family: "Cormorant Garamond", serif;
+      font-size: 1.15rem;
+      font-weight: 600;
+    }
+
+    @media (max-width: 600px) {
+      .hero-inner {
+        padding: 3.5rem 0 4rem;
+      }
+
+      .posts {
+        padding: 3.25rem 0 4rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div class="hero-inner">
+      <p class="brand">Отдых<span>.23</span></p>
+      <h1>Тихий дом у моря для тех, кто устал от шума</h1>
+      <p>Гостевой дом в Краснодарском крае. Пять готовых постов — копируйте и публикуйте в соцсетях.</p>
+      <a class="cta" href="#posts">Смотреть посты ↓</a>
+    </div>
+  </header>
+
+  <main class="posts" id="posts">
+    <div class="posts-header">
+      <h2>5 постов для привлечения подписчиков</h2>
+      <p>Тексты для Instagram, VK и Telegram. Можно публиковать как есть или адаптировать под фото.</p>
+    </div>
+
+    <article class="post" data-copy>
+      <div class="post-meta"><span class="post-num">01</span><span>Знакомство</span></div>
+      <h3>Мы открыли двери. Добро пожаловать.</h3>
+      <p class="post-body">Гостевой дом «Отдых.23» — место, где можно выдохнуть.
+
+Без суеты города. С утренним кофе на веранде, шумом листвы и ощущением, что время наконец замедлилось.
+
+Если ищете спокойный отдых в Краснодарском крае — подписывайтесь. Здесь будет про дом, природу и настоящую паузу.</p>
+      <p class="hashtags">#Отдых23 #ГостевойДом #КраснодарскийКрай #ОтдыхНаЮге</p>
+      <button type="button" class="copy-btn">Скопировать пост</button>
+    </article>
+
+    <article class="post" data-copy>
+      <div class="post-meta"><span class="post-num">02</span><span>Атмосфера</span></div>
+      <h3>Утро начинается не с будильника</h3>
+      <p class="post-body">В «Отдых.23» утро пахнет свежим воздухом и свежесваренным кофе.
+
+Выходите на веранду. Слушаете птиц. Планируете день без спешки — море, прогулка или просто ничего.
+
+Именно за этим и приезжают к нам снова.</p>
+      <p class="hashtags">#УтроНаЮге #Отдых23 #ЗагородныйОтдых #Тишина</p>
+      <button type="button" class="copy-btn">Скопировать пост</button>
+    </article>
+
+    <article class="post" data-copy>
+      <div class="post-meta"><span class="post-num">03</span><span>Предложение</span></div>
+      <h3>Ваш уголок спокойствия уже ждёт</h3>
+      <p class="post-body">Комфортные номера, домашний уют и всё нужное для отдыха без лишней суеты.
+
+«Отдых.23» подходит для пары, семьи или друзей, которые хотят перезагрузиться.
+
+Пишите в директ — поможем подобрать даты и расскажем, что рядом интересного.</p>
+      <p class="hashtags">#Бронирование #Отдых23 #ГостевойДомЮг #СемейныйОтдых</p>
+      <button type="button" class="copy-btn">Скопировать пост</button>
+    </article>
+
+    <article class="post" data-copy>
+      <div class="post-meta"><span class="post-num">04</span><span>Вовлечение</span></div>
+      <h3>Что для вас идеальный отдых?</h3>
+      <p class="post-body">Море на весь день?
+Тишина и книга в гамаке?
+Вечер у мангала с близкими?
+
+Напишите в комментариях цифру:
+1 — море
+2 — тишина
+3 — компания и шашлык
+
+А мы подскажем, как провести такие дни в «Отдых.23» 🌿</p>
+      <p class="hashtags">#Опрос #Отдых23 #ЧтоВыберешьТы #ЮгРоссии</p>
+      <button type="button" class="copy-btn">Скопировать пост</button>
+    </article>
+
+    <article class="post" data-copy>
+      <div class="post-meta"><span class="post-num">05</span><span>Призыв</span></div>
+      <h3>Места заканчиваются быстрее, чем кажется</h3>
+      <p class="post-body">Сезон на юге — это когда хочется уехать «прямо сейчас».
+
+В «Отдых.23» вас ждут уют, забота хозяев и отдых без толп и спешки.
+
+Подписывайтесь, сохраняйте пост и пишите «ХОЧУ» — пришлём свободные даты и условия заезда.</p>
+      <p class="hashtags">#ХочуОтдохнуть #Отдых23 #БроньОткрыта #ЮжныйОтдых</p>
+      <button type="button" class="copy-btn">Скопировать пост</button>
+    </article>
+  </main>
+
+  <footer>
+    <p><strong>Отдых.23</strong> — готовые тексты для продвижения гостевого дома</p>
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.15 }
+    );
+
+    document.querySelectorAll(".post").forEach((post, i) => {
+      post.style.transitionDelay = `${i * 0.08}s`;
+      observer.observe(post);
+    });
+
+    document.querySelectorAll("[data-copy]").forEach((post) => {
+      const btn = post.querySelector(".copy-btn");
+      const title = post.querySelector("h3").textContent.trim();
+      const body = post.querySelector(".post-body").textContent.trim();
+      const tags = post.querySelector(".hashtags").textContent.trim();
+
+      btn.addEventListener("click", async () => {
+        const text = `${title}\n\n${body}\n\n${tags}`;
+        try {
+          await navigator.clipboard.writeText(text);
+          btn.textContent = "Скопировано!";
+          btn.classList.add("copied");
+          setTimeout(() => {
+            btn.textContent = "Скопировать пост";
+            btn.classList.remove("copied");
+          }, 1800);
+        } catch {
+          btn.textContent = "Не удалось скопировать";
+        }
+      });
+    });
+  </script>
+</body>
+</html>
